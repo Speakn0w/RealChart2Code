@@ -1,0 +1,34 @@
+# Cached API responses
+**/generation_cache.jsonl
+**/evaluation_cache.jsonl
+
+# Generated results from user runs
+results_task*_test/
+
+# Large data (hosted on HuggingFace)
+RealChart2Code_eval/data/selected_chart2code_benchmark_data/
+RealChart2Code_eval/data/benchmark_data.tar.gz.*
+RealChart2Code_eval/data/results_task*.tar.gz
+RealChart2Code_eval/results_task1/
+RealChart2Code_eval/results_task2/
+RealChart2Code_eval/results_task3/
+hf_data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+
+# Virtual environment
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

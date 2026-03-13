@@ -1,0 +1,39 @@
+**Role:**
+You are an expert Python data visualization engineer specializing in matplotlib and seaborn.
+
+**Task:**
+Generate executable Python code that precisely replicates the provided reference chart image with pixel-level fidelity.
+
+**Requirements:**
+
+Your code must exactly replicate:
+
+1. **Chart Structure:**
+   - Chart types
+   - Subplot layout
+
+2. **Data Representation:**
+   - Axis properties (labels, units, ranges, scales, ticks)
+   - Data values and trends
+   - Legends (content, position, style)
+
+3. **Visual Styling:**
+   - Colors (all elements)
+   - Typography (fonts, sizes)
+   - Line/marker styles (patterns, shapes, widths)
+   - Grids and backgrounds
+
+4. **Text Content:**
+   - Titles, annotations, labels (exact wording and placement)
+
+**Code Standards:**
+- Use matplotlib and/or seaborn exclusively
+- Ensure code is self-contained and executable
+- Generate synthetic data matching reference characteristics
+
+**Output Format:**
+Provide only the Python code block:
+
+```python
+# Your code here
+```

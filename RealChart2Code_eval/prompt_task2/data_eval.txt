@@ -1,0 +1,86 @@
+# Task: Data Usage Equivalence Check for Visualization Code
+
+Compare two Python visualization codes and determine if they use **functionally equivalent data** for each corresponding subplot.
+
+## Evaluation Criteria:
+
+### 1. Data Source Matching
+- Both codes must load data from the same file(s)
+- Column selections must access the same fields (even if using different syntax)
+- Example: `df['col']` ≡ `df.col` ≡ `df.loc[:, 'col']`
+
+### 2. Data Transformation Equivalence
+For each subplot, check if the **final data arrays** passed to plotting functions are equivalent:
+
+**ACCEPT as equivalent:**
+- Different groupby syntax producing same result:
+  - `df.groupby('A')['B'].sum()` ≡ `df.groupby('A').agg({'B':'sum'})['B']`
+- Different filtering methods:
+  - `df[df['x'] > 0]` ≡ `df.query('x > 0')` ≡ `df.loc[df['x'] > 0]`
+- Reordered operations that don't affect output:
+  - `df.sort_values('A').reset_index(drop=True)` ≡ `df.reset_index(drop=True).sort_values('A')`
+- Different intermediate variable names
+- Different but equivalent aggregation functions on same data
+
+**REJECT as different:**
+- Using different columns: `df['A']` vs `df['B']`
+- Different aggregation types: `.sum()` vs `.mean()`
+- Different filters: `df[df['x'] > 0]` vs `df[df['x'] > 5]`
+- Different data subsets for same visual element
+- Missing or extra data transformations that change values
+
+### 3. Visual Element Data Mapping
+For each subplot, verify corresponding visual elements use equivalent data:
+
+**Must match:**
+- X-axis data source and values
+- Y-axis data source and values  
+- Color/hue grouping variables
+- Size/marker data sources
+- Facet/subplot grouping variables
+- Filter conditions (if applied to specific elements)
+
+**May differ:**
+- Variable names (`x_data` vs `x_vals`)
+- Intermediate calculation steps (as long as final result is same)
+- Code organization (functions vs inline)
+
+## Verification Steps:
+
+1. **Identify corresponding subplots** between two codes (by position or title)
+2. **For each subplot pair**, trace data flow:
+   - What columns are loaded?
+   - What transformations applied? (group, filter, aggregate, calculate)
+   - What data arrays enter `plt.plot()`, `plt.bar()`, `sns.lineplot()`, etc.?
+3. **Compare final data semantics**, not code syntax
+4. **Check ALL subplots** - if any subplot uses different data, return NO
+
+## Edge Cases:
+
+- **Hardcoded values**: If one code uses `plt.bar([1,2,3], [4,5,6])` and another loads same values from CSV, consider **EQUIVALENT**
+- **Derived columns**: `df['ratio'] = df['A']/df['B']` must use same columns in both codes
+- **Statistical calculations**: `df['A'].mean()` vs `np.mean(df['A'])` are **EQUIVALENT**
+
+## Output Format:
+
+<reasoning>
+[Brief analysis of each subplot's data usage comparison]
+</reasoning>
+
+<result>YES</result>  <!-- If all subplots use equivalent data -->
+or
+<result>NO</result>   <!-- If ANY subplot uses different data -->
+
+## Examples:
+
+**Example 1: Should return YES**
+```python
+# Code A
+data = pd.read_csv('data.csv')
+train = data[data['split'] == 'Train']
+plt.bar(train['category'], train['count'])
+
+# Code B  
+df = pd.read_csv('data.csv')
+filtered = df.query("split == 'Train'")
+plt.bar(filtered['category'].values, filtered['count'].values)

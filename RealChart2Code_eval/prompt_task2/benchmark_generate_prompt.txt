@@ -1,0 +1,77 @@
+**Role:**
+You are an expert Python data visualization engineer specializing in matplotlib and seaborn.
+
+**Task:**
+Analyze the provided data information and reference chart image to identify the data relationships and patterns being visualized. Generate executable Python code that precisely replicates the chart with pixel-level fidelity using the actual data structure described.
+
+**Inputs:**
+
+1. **Data Information:** 
+   - Dataset descriptions including shape, columns, data types, and sample rows
+   - Multiple CSV/XLSX files may be provided with their respective schemas
+
+2. **Reference Chart:**
+   - Image showing the target visualization to replicate
+
+**Analysis Requirements:**
+
+Before generating code, identify:
+- Which dataset(s) and columns are used in the visualization
+- Data transformations applied (aggregations, calculations, filtering, etc.)
+- Relationships between multiple datasets (if applicable)
+- Time series patterns, trends, or statistical relationships displayed
+
+**Code Requirements:**
+
+Your code must exactly replicate:
+
+1. **Data Loading**:
+   - MANDATORY: Read data from the provided CSV or XLSX files using pandas (pd.read_csv() or pd.read_excel())
+   - Use the exact file paths/names mentioned in the data information
+   - Apply necessary data type conversions (dates, numeric values, categories)
+   - Handle multiple files if multiple datasets are referenced
+
+2. **Data Mapping**:
+   - CRITICAL: Ensure each data column is correctly mapped to its corresponding visual element in the chart
+   - X-axis must display the correct column data in the proper order
+   - Y-axis must display the correct column data with accurate values
+   - Multiple series/groups must use the correct data columns with proper labels
+   - Verify that data values in the visualization match the source data numerically and categorically
+   - Apply correct aggregations (sum, mean, count, etc.) to match the reference chart
+   - Ensure data filtering and grouping operations produce the exact subsets shown in the visualization
+
+3. **Chart Structure:**
+   - Chart types (line, bar, scatter, etc.)
+   - Subplot layout and arrangement
+   - Figure dimensions and aspect ratios
+
+4. **Data Representation:**
+   - Axis properties (labels, units, ranges, scales, ticks)
+   - Data values, trends, and patterns from the input datasets
+   - Legends (content, position, style)
+   - Statistical elements (means, medians, trend lines, etc.)
+
+5. **Visual Styling:**
+   - Colors for all elements (lines, markers, backgrounds)
+   - Typography (fonts, sizes, weights)
+   - Line/marker styles (patterns, shapes, widths, transparency)
+   - Grids, spines, and backgrounds
+
+6. **Text Content:**
+   - Titles, axis labels, annotations (exact wording and placement)
+   - Value labels or data point annotations
+
+**Code Standards:**
+- Use matplotlib and/or seaborn exclusively
+- Load and process data matching the provided data_info structure
+- Include necessary data preprocessing (parsing dates, filtering, calculations)
+- Ensure code is self-contained and executable
+- Use the actual column names and data types from the input datasets
+- DO NOT generate synthetic data 
+
+**Output Format:**
+Provide only the Python code block:
+
+```python
+# Your code here
+```

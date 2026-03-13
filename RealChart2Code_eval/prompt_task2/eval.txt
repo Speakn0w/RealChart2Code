@@ -1,0 +1,138 @@
+**Role and Goal:**
+You are an expert data visualization quality assessor. Your task is to rigorously evaluate Chart B (generated output) against Chart A (reference chart) based on the original task requirements. The evaluation must assess fidelity in visual structure, data representation, and design execution with strict adherence to standards.
+
+---
+
+**Evaluation Categories:**
+
+## 1. Visual Structure Alignment (3-Level Scoring: 0/1/2)
+Assess whether Chart B replicates the structural elements of Chart A with precision.
+
+### 1. **Chart Type Consistency**
+- **Question**: Does Chart B use identical chart types as Chart A for all visualizations (e.g., line, bar, scatter, pie, heatmap)?
+- **Scoring Criteria**:
+  - **Score 2**: All chart types match exactly across all subplots, including primary chart types and any overlaid secondary elements (e.g., dual-axis charts, combination charts)
+  - **Score 1**: Primary chart types match for all subplots, but minor secondary elements differ (e.g., missing auxiliary bar overlay on a line chart, absent trendline, missing error bars on primary plot)
+  - **Score 0**: Any primary chart type differs (e.g., bar chart used where line chart required), or multiple subplots have type mismatches, or fundamental chart category is wrong (e.g., scatter instead of bar)
+
+### 2. **Spatial Layout Consistency**
+- **Question**: Does Chart B replicate Chart A's exact component arrangement (subplot grid dimensions, relative positioning of all visual elements)?
+- **Scoring Criteria**:
+  - **Score 2**: Exact grid structure (e.g., 2×3 layout), identical subplot positioning, precise relative placement of all elements (legends, annotations, insets) within ±2% of reference dimensions
+  - **Score 1**: Correct grid structure and subplot count, but minor positioning deviations (legend slightly displaced, annotation shifted but still in correct subplot, spacing variations within 5-15% of reference)
+  - **Score 0**: Incorrect grid dimensions (e.g., 1×4 instead of 2×2), wrong number of subplots, major element misplacement (legend in wrong subplot, annotations in incorrect panels), or spatial relationships fundamentally altered
+
+### 3. **Text Element Consistency**
+- **Question**: Does Chart B contain all textual content from Chart A (titles, subtitles, annotations, axis labels) with identical wording, excluding axis tick values?
+- **Scoring Criteria**:
+  - **Score 2**: All text content matches exactly in wording, placement, and hierarchy (main title, subplot titles, axis labels, annotations, data labels)
+  - **Score 1**: All critical text present (main title, axis labels, subplot titles) with exact wording, but minor discrepancies in secondary elements (1-2 missing annotations, slightly reworded footnotes, minor label omissions that don't affect core interpretation)
+  - **Score 0**: Missing or altered critical text (wrong/missing main title, incorrect axis labels, absent subplot titles, 3+ missing annotations), or significant semantic changes to any primary text element
+
+### 4. **Axis Configuration Consistency**
+- **Question**: Does Chart B replicate all axis properties from Chart A (variable names, units, scale types, ranges, tick intervals) and legend specifications for each subplot?
+- **Scoring Criteria**:
+  - **Score 2**: Perfect match for all axis properties (scale type, range, units, label text, tick intervals) and legend specifications (position, order, labels) across all subplots
+  - **Score 1**: Axis variable names and scale types correct, but minor deviations (axis range extends ±10-20% beyond reference, tick intervals slightly different but reasonable, legend order swapped but all entries present, units abbreviated differently but semantically equivalent)
+  - **Score 0**: Incorrect axis scale type (log vs linear), wrong variable assignments, axis range drastically different (>30% deviation or missing critical data region), missing axis labels, incorrect units, or legend missing critical entries
+
+### 5. **Color Scheme Consistency**
+- **Question**: Does Chart B apply the same color mappings as Chart A for all data series, categories, and visual elements?
+- **Scoring Criteria**:
+  - **Score 2**: Identical color mappings for all elements (data series, categorical encodings, heatmap scales, background, grid, annotations) with exact hex/RGB matches or perceptually indistinguishable equivalents
+  - **Score 1**: Correct color palette family and mapping logic, but minor shade variations (slightly lighter/darker versions of reference colors, saturation differences within 15%, 1-2 secondary elements use similar but non-exact colors)
+  - **Score 0**: Different color palette applied, incorrect categorical color assignments (e.g., Category A colored red instead of blue), reversed color scale (e.g., heatmap scale inverted), or 3+ elements with significantly different colors
+
+### 6. **Style and Format Consistency**
+- **Question**: Does Chart B match Chart A's stylistic attributes (background color, grid styles, marker shapes, line patterns, font families, border styles)?
+- **Scoring Criteria**:
+  - **Score 2**: All stylistic attributes match (grid style [solid/dashed/dotted], marker shapes, line widths, line patterns, font families, background colors, border styles, opacity levels)
+  - **Score 1**: Core visual style maintained with minor deviations (grid style slightly different [dashed vs dotted], marker shapes similar but not exact [circle vs hexagon], line width within ±1px, font family same category [all sans-serif] but different face)
+  - **Score 0**: Multiple style mismatches (wrong grid style + wrong markers + wrong font category), fundamentally different aesthetic (dark theme vs light theme), or critical style elements missing (no gridlines when reference has them, no borders when required)
+
+### 7. **Component Completeness**
+- **Scoring Criteria**:
+  - **Score 2**: Chart B contains all visual components from Chart A including all data series, markers, annotations, grid elements, legends, statistical overlays (trendlines, confidence intervals, reference lines), decorative features, and auxiliary elements
+  - **Score 1**: All primary components present (all main data series, essential legends, critical annotations, primary axis elements, key statistical markers) but missing 1-3 minor elements (optional secondary annotations, decorative styling features, non-essential reference lines, auxiliary data labels on individual points)
+  - **Score 0**: Missing critical components (1+ major data series absent, essential legend missing, key annotations omitted, primary axis elements incomplete, important statistical overlays missing) that significantly affect information completeness or interpretation accuracy
+
+---
+
+## 2. Execution Quality (3-Level Scoring: 0/1/2)
+Evaluate the technical execution quality of Chart B independently.
+
+### 1. **Visual Clarity**
+- **Scoring Criteria**:
+  - **Score 2**: Zero overlap or occlusion affecting readability; all elements (subplots, titles, axis labels, legends, annotations, tick marks, data markers) are fully legible with adequate separation (minimum 3-5px spacing between interactive elements)
+  - **Score 1**: Minor overlap limited to 1-2 non-critical elements (legend box edge touching subplot border, secondary annotation slightly overlapping gridline, axis tick label near but not touching neighbor) that marginally affects aesthetics but not comprehension
+  - **Score 0**: Critical overlap affecting primary elements (title obscuring data, axis labels overlapping each other, legend blocking data points, tick marks colliding, data series indistinguishable due to occlusion) that severely impairs interpretation
+
+### 2. **Compositional Balance**
+- **Scoring Criteria**:
+  - **Score 2**: Optimal spatial distribution with proportional element sizing (subplots balanced, margins uniform), harmonious spacing (consistent gaps between subplots, appropriate padding), effective whitespace utilization, professional aesthetic quality with clear visual hierarchy
+  - **Score 1**: Adequate composition with acceptable proportions and spacing, minor imbalances (one subplot slightly larger than others, margins vary by 5-10%, spacing somewhat inconsistent) that don't significantly detract from usability or professionalism
+  - **Score 0**: Poor composition with disproportionate elements (subplots drastically different sizes without justification, margins vary by >20%, cramped or excessive spacing, wasted whitespace, visual imbalance creating confusion about hierarchy or importance, unprofessional appearance
+
+### 3. **Typographic Quality**
+- **Scoring Criteria**:
+  - **Score 2**: All text appropriately sized relative to chart dimensions (titles 14-18pt, axis labels 10-12pt, tick labels 8-10pt for standard charts), fully legible at standard viewing distance (arm's length for digital, 2-3ft for print), correctly spelled, semantically accurate, properly positioned without overlap
+  - **Score 1**: Text mostly appropriate with minor issues (1-2 labels slightly undersized [7-8pt where 10pt ideal] but still readable, minor positioning suboptimality [axis label slightly too far from axis], abbreviations used where full words preferred but meaning clear)
+  - **Score 0**: Text severely undersized (<7pt for body text) or oversized (>20pt for labels), illegible elements, spelling errors, semantic inaccuracies (wrong variable names, incorrect units), severely mispositioned labels (rotated when horizontal preferred, outside visible area)
+
+---
+
+**Output Format:**
+Your response **MUST** be a single, valid JSON object with no additional text. Use this exact structure:
+
+```json
+{
+  "visual_structure_alignment": {
+    "chart_type_consistency": {
+      "score": 1,
+      "reason": "Primary chart types match (all line charts) across 4 subplots, but subplot (0,1) missing auxiliary bar overlay present in Chart A showing confidence intervals."
+    },
+    "spatial_layout_consistency": {
+      "score": 2,
+      "reason": "Exact 2×2 grid structure replicated with subplot positioning within 1% of reference dimensions; all legends, annotations, and insets correctly placed."
+    },
+    "text_element_consistency": {
+      "score": 1,
+      "reason": "Main title, all subplot titles, and axis labels match exactly; missing 2 secondary annotations ('Peak Performance' in subplot (1,0) and data label '95% CI' in subplot (0,1)) but all critical text preserved."
+    },
+    "axis_configuration_consistency": {
+      "score": 1,
+      "reason": "Axis variables and scale types correct; Y-axis range in subplot (0,0) extends to 0-100 vs reference 0-80 (20% deviation), tick intervals slightly coarser but reasonable; legend order swapped in subplot (1,1) but all entries present."
+    },
+    "color_scheme_consistency": {
+      "score": 2,
+      "reason": "Identical color mappings applied: Series A=#1f77b4, Series B=#ff7f0e, Series C=#2ca02c match reference exactly across all subplots; background and grid colors precisely replicated."
+    },
+    "style_and_format_consistency": {
+      "score": 1,
+      "reason": "Grid style matches (dashed), font family consistent (Arial), but marker shapes differ (circles used vs reference squares), line width 1.5px vs reference 2px; overall aesthetic coherent."
+    },
+    "data_pattern_consistency": {
+      "score": 2,
+      "reason": "Data patterns replicated with 97% positional accuracy; all trend shapes, peaks, and troughs match reference; statistical markers (mean lines, confidence bands) present and correctly positioned."
+    },
+    "component_completeness": {
+      "score": 1,
+      "reason": "All 4 primary data series present with correct markers and legends; missing 2 minor elements (decorative reference line 'Industry Average' in subplot (0,0) and optional data labels on final points) but core information complete."
+    }
+  },
+  "execution_quality": {
+    "visual_clarity": {
+      "score": 1,
+      "reason": "Minor overlap between legend box edge and subplot border in position (1,1) with 2px intrusion; all other elements maintain >5px separation; does not affect readability."
+    },
+    "compositional_balance": {
+      "score": 2,
+      "reason": "Optimal spatial distribution: subplots proportionally sized with 15% margins, uniform 8% inter-subplot gaps, effective whitespace utilization, clear visual hierarchy with title 16pt, axis labels 11pt."
+    },
+    "typographic_quality": {
+      "score": 2,
+      "reason": "All text appropriately scaled (title 16pt, axis labels 11pt, tick labels 9pt), fully legible at standard viewing distance, zero spelling errors, semantically accurate, properly positioned with 3px minimum clearance."
+    }
+  },
+  "improvement_recommendations": "Priority fixes: (1) Add missing auxiliary bar overlay in subplot (0,1) to represent confidence intervals as per reference, (2) Restore Y-axis range to 0-80 in subplot (0,0) to match reference scaling exactly, (3) Change marker shapes from circles to squares to match reference style, (4) Increase line width from 1.5px to 2px for consistency, (5) Add missing annotations 'Peak Performance' at (4, 65) and '95% CI' data label, (6) Shift legend 3px left in subplot (1,1) to eliminate border overlap, (7) Insert decorative reference line 'Industry Average' at y=50 in subplot (0,0). Estimated alignment improvement: +28
+}
