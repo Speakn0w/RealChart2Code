@@ -253,3 +253,15 @@ Each model directory contains `statistics.json` with aggregated scores and indiv
 ## License
 
 This benchmark uses publicly available datasets from Kaggle. Individual dataset licenses are recorded in each sample's `complete_metadata.json`.
+
+## Citation
+If you use PlotCraft in your research, please cite our paper:
+
+```bibtex
+@article{zhang2026realchart2code,
+  title={RealChart2Code: Advancing Chart-to-Code Generation with Real Data and Multi-Task Evaluation},
+  author={Zhang, Jiajun and Li, Yuying and Li, Zhixun and Guo, Xingyu and Wu, Jingzhuo and Zheng, Leqi and Yang, Yiran and Zhang, Jianke and Li, Qingbin and Yan, Shannan and others},
+  journal={arXiv preprint arXiv:2603.25804},
+  year={2026}
+}
+```
