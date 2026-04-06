@@ -255,7 +255,7 @@ Each model directory contains `statistics.json` with aggregated scores and indiv
 This benchmark uses publicly available datasets from Kaggle. Individual dataset licenses are recorded in each sample's `complete_metadata.json`.
 
 ## Citation
-If you use PlotCraft in your research, please cite our paper:
+If you use RealChart2Code in your research, please cite our paper:
 
 ```bibtex
 @article{zhang2026realchart2code,
