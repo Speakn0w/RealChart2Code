@@ -253,3 +253,13 @@ python ../to_excel_by_sub_score.py <results_directory> -p "score_*.json"
 ## 许可
 
 本基准测试使用 Kaggle 上公开可用的数据集。各数据集的许可信息记录在每个样本的 `complete_metadata.json` 中。
+
+## 引用
+```bibtex
+@article{zhang2026realchart2code,
+  title={RealChart2Code: Advancing Chart-to-Code Generation with Real Data and Multi-Task Evaluation},
+  author={Zhang, Jiajun and Li, Yuying and Li, Zhixun and Guo, Xingyu and Wu, Jingzhuo and Zheng, Leqi and Yang, Yiran and Zhang, Jianke and Li, Qingbin and Yan, Shannan and others},
+  journal={arXiv preprint arXiv:2603.25804},
+  year={2026}
+}
+```
